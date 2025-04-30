@@ -330,7 +330,11 @@ footer {
 }
 
 .social-icons .tiktok:hover {
-    color: #000000;
+    background: #000;
+}
+
+.social-icons .telegram:hover {
+    background: #0088cc;
 }
 
 @media (max-width: 768px) {
