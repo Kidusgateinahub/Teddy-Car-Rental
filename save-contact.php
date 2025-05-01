@@ -1,4 +1,7 @@
 <?php
+// Include common functions
+require_once 'functions.php';
+
 // Database connection parameters
 $servername = "localhost";
 $username = "root";
@@ -13,14 +16,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Function to sanitize input data
-function sanitize_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Initialize variables
@@ -32,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Phone number is required";
     } else {
         $phone = sanitize_input($_POST["phone"]);
-        if (!preg_match("/^[0-9]{10,15}$/", $phone)) {
+        if (!validate_phone($phone)) {
             $errors[] = "Invalid phone number format";
         }
     }
@@ -41,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Email is required";
     } else {
         $email = sanitize_input($_POST["email"]);
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (!validate_email($email)) {
             $errors[] = "Invalid email format";
         }
     }
@@ -52,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = sanitize_input($_POST["message"]);
     }
 
-    // If there are no errors, proceed with database insertion and email sending
+    // If there are no errors, proceed with database insertion
     if (empty($errors)) {
         // Prepare SQL statement
         $stmt = $conn->prepare("INSERT INTO contact_messages (phone, email, message, created_at) VALUES (?, ?, ?, NOW())");
@@ -60,52 +55,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Execute the statement
         if ($stmt->execute()) {
-            // Send email notification
-            $to = "kidusgate@gmail.com"; // Your email address
-            $subject = "New Contact Form Submission - Teddy Car Rental";
-            
-            // Email content
-            $email_content = "You have received a new message from the contact form.\n\n";
-            $email_content .= "Phone: " . $phone . "\n";
-            $email_content .= "Email: " . $email . "\n";
-            $email_content .= "Message: " . $message . "\n";
-            
-            // Email headers
-            $headers = "From: " . $email . "\r\n";
-            $headers .= "Reply-To: " . $email . "\r\n";
-            $headers .= "X-Mailer: PHP/" . phpversion();
-            
+            // Re-populate $_POST for email script
+            $_POST['phone'] = $phone;
+            $_POST['email'] = $email;
+            $_POST['message'] = $message;
+
             // Send the email
-            if (mail($to, $subject, $email_content, $headers)) {
-                // Redirect to contact page with success message
-                header("Location: contact.html?status=success");
-                exit();
-            } else {
-                // If email fails but database insertion succeeds, still show success
-                header("Location: contact.html?status=success");
-                exit();
-            }
+            include 'send-email.php';
+
+            // Redirect to contact page with success message
+            header("Location: contact.html?status=success");
+            exit();
         } else {
-            $errors[] = "Error: " . $stmt->error;
+            $errors[] = "Database error: " . $stmt->error;
         }
 
         $stmt->close();
     }
 
-    // If there are errors, redirect back to contact page with error messages
-    if (!empty($errors)) {
-        session_start();
-        $_SESSION['errors'] = $errors;
-        $_SESSION['form_data'] = $_POST;
-        header("Location: contact.html?status=error");
-        exit();
-    }
+    // If there are errors, store in session and redirect
+    session_start();
+    $_SESSION['errors'] = $errors;
+    $_SESSION['form_data'] = $_POST;
+    header("Location: contact.html?status=error");
+    exit();
 } else {
-    // If someone tries to access this page directly, redirect to contact page
+    // Prevent direct access
     header("Location: contact.html");
     exit();
 }
 
-// Close the database connection
+// Close DB connection
 $conn->close();
 ?>
