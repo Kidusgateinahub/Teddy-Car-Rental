@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = sanitize_input($_POST["message"]);
     }
 
-    // If there are no errors, proceed with database insertion
+    // If there are no errors, proceed with database insertion and email sending
     if (empty($errors)) {
         // Prepare SQL statement
         $stmt = $conn->prepare("INSERT INTO contact_messages (phone, email, message, created_at) VALUES (?, ?, ?, NOW())");
@@ -60,9 +60,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Execute the statement
         if ($stmt->execute()) {
-            // Redirect to contact page with success message
-            header("Location: contact.html?status=success");
-            exit();
+            // Send email notification
+            $to = "kidusgate@gmail.com"; // Your email address
+            $subject = "New Contact Form Submission - Teddy Car Rental";
+            
+            // Email content
+            $email_content = "You have received a new message from the contact form.\n\n";
+            $email_content .= "Phone: " . $phone . "\n";
+            $email_content .= "Email: " . $email . "\n";
+            $email_content .= "Message: " . $message . "\n";
+            
+            // Email headers
+            $headers = "From: " . $email . "\r\n";
+            $headers .= "Reply-To: " . $email . "\r\n";
+            $headers .= "X-Mailer: PHP/" . phpversion();
+            
+            // Send the email
+            if (mail($to, $subject, $email_content, $headers)) {
+                // Redirect to contact page with success message
+                header("Location: contact.html?status=success");
+                exit();
+            } else {
+                // If email fails but database insertion succeeds, still show success
+                header("Location: contact.html?status=success");
+                exit();
+            }
         } else {
             $errors[] = "Error: " . $stmt->error;
         }
