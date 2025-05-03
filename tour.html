@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tour Packages - Teddy Car Rental</title>
+    <title>Teddy Car Rental - Tours</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -31,110 +31,301 @@
         </nav>
 
         <div class="slideshow">
-            <img src="old car.jpg" class="slide active">
-            <img src="car.jpeg" class="slide">
+            <img src="slideshow4.jpg" class="slide active">
+            <img src="slideshow2.jpg" class="slide">
+            <img src="slideshow3.jpg" class="slide">
             <img src="slideshow1.jpg" class="slide">
+            <img src="slideshow0.jpg" class="slide">
+            <img src="slideshow6.jpg" class="slide">
+            <img src="slideshow7.jpg" class="slide">
+            <img src="slideshow8.jpg" class="slide">
+            <img src="slideshow9.jpg" class="slide">
+            <img src="slideshow10.jpg" class="slide">
+            <img src="slideshow11.webp" class="slide">
         </div>
 
         <div class="hero-content">
-            <h1>Tour with us</h1>
+            <h1>Discover the Beauty of Ethiopia</h1>
+            <p>Land of Origins</p>
         </div>
     </header>
 
-    <main class="tour-container">
-        <section class="tour-section">
-            <h2>Popular Destinations</h2>
-            <div class="tour-grid">
-                <!-- Tour Box 1 -->
-                <div class="tour-box">
+    <section class="tour-filters">
+        <div class="container">
+            <div class="filter-options">
+                <div class="sort-by">
+                    <label>Sort by:</label>
+                    <select>
+                        <option>Title</option>
+                        <option>Price</option>
+                        <option>Rating</option>
+                        <option>Availability date</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tour-grid">
+        <div class="container">
+            <h2 class="gallery-title">Our Tours</h2>
+            <div class="tours-container">
+                <!-- Tour 1 -->
+                <div class="tour-card">
                     <div class="tour-image">
-                        <img src="tour1.jpg" alt="Historical Tour">
-                        <div class="tour-overlay">
-                            <h3>Historical Tour</h3>
-                            <p>Explore ancient landmarks and cultural heritage sites</p>
-                            <button class="tour-btn" onclick="window.location.href='contact.html'">Book Tour</button>
+                        <img src="slideshow4.jpg" alt="Addis Ababa City Tour">
+                        <div class="tour-rating">
+                            <span class="rating">4.27</span>
+                            <span class="reviews">by 3 reviews</span>
                         </div>
                     </div>
-                    <div class="tour-info">
-                        <h3>Historical Tour</h3>
-                        <p class="tour-price">$150/day</p>
-                        <ul class="tour-features">
-                            <li>Professional Guide</li>
-                            <li>Lunch Included</li>
-                            <li>Entrance Fees</li>
-                            <li>Transportation</li>
-                        </ul>
+                    <div class="tour-content">
+                        <h3>Addis Ababa City Tour</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Addis Ababa</span>
+                            <span><i class="fas fa-clock"></i> 1 day</span>
+                        </div>
+                        <div class="tour-features">
+                            <div class="feature">
+                                <span>Quality</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Location</span>
+                                <span class="rating">4.00</span>
+                            </div>
+                            <div class="feature">
+                                <span>Amenities</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Services</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Price</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                        </div>
+                        <a href="tour-details.html?id=addis" class="explore-btn">Explore <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <!-- Tour Box 2 -->
-                <div class="tour-box">
+                <!-- Tour 2 -->
+                <div class="tour-card">
                     <div class="tour-image">
-                        <img src="tour2.jpg" alt="Nature Adventure">
-                        <div class="tour-overlay">
-                            <h3>Nature Adventure</h3>
-                            <p>Discover breathtaking landscapes and wildlife</p>
-                            <button class="tour-btn" onclick="window.location.href='contact.html'">Book Tour</button>
+                        <img src="omo.jpg" alt="Omo Valley Tour">
+                        <div class="tour-rating">
+                            <span class="rating">4.27</span>
+                            <span class="reviews">by 3 reviews</span>
                         </div>
                     </div>
-                    <div class="tour-info">
-                        <h3>Nature Adventure</h3>
-                        <p class="tour-price">$200/day</p>
-                        <ul class="tour-features">
-                            <li>Expert Guide</li>
-                            <li>Equipment Provided</li>
-                            <li>Picnic Lunch</li>
-                            <li>Photo Service</li>
-                        </ul>
+                    <div class="tour-content">
+                        <h3>Omo Valley Tour</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Omo Valley</span>
+                            <span><i class="fas fa-clock"></i> 1 day</span>
+                        </div>
+                        <div class="tour-features">
+                            <div class="feature">
+                                <span>Quality</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Location</span>
+                                <span class="rating">4.00</span>
+                            </div>
+                            <div class="feature">
+                                <span>Amenities</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Services</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Price</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                        </div>
+                        <a href="tour-details.html?id=omo" class="explore-btn">Explore <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <!-- Tour Box 3 -->
-                <div class="tour-box">
+                <!-- Tour 3 -->
+                <div class="tour-card">
                     <div class="tour-image">
-                        <img src="tour3.jpg" alt="City Exploration">
-                        <div class="tour-overlay">
-                            <h3>City Exploration</h3>
-                            <p>Experience the vibrant city life and local culture</p>
-                            <button class="tour-btn" onclick="window.location.href='contact.html'">Book Tour</button>
+                        <img src="semen mountain.jpg" alt="Semien Mountains Tour">
+                        <div class="tour-rating">
+                            <span class="rating">4.27</span>
+                            <span class="reviews">by 3 reviews</span>
                         </div>
                     </div>
-                    <div class="tour-info">
-                        <h3>City Exploration</h3>
-                        <p class="tour-price">$120/day</p>
-                        <ul class="tour-features">
-                            <li>Local Guide</li>
-                            <li>Food Tasting</li>
-                            <li>Shopping Stops</li>
-                            <li>Cultural Shows</li>
-                        </ul>
+                    <div class="tour-content">
+                        <h3>Semien Mountains Tour</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Semien Mountains</span>
+                            <span><i class="fas fa-clock"></i> 1 day</span>
+                        </div>
+                        <div class="tour-features">
+                            <div class="feature">
+                                <span>Quality</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Location</span>
+                                <span class="rating">4.00</span>
+                            </div>
+                            <div class="feature">
+                                <span>Amenities</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Services</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Price</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                        </div>
+                        <a href="tour-details.html?id=semien" class="explore-btn">Explore <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <!-- Tour Box 4 -->
-                <div class="tour-box">
+                <!-- Tour 4 -->
+                <div class="tour-card">
                     <div class="tour-image">
-                        <img src="tour4.jpg" alt="Mountain Trek">
-                        <div class="tour-overlay">
-                            <h3>Mountain Trek</h3>
-                            <p>Challenge yourself with exciting mountain trails</p>
-                            <button class="tour-btn" onclick="window.location.href='contact.html'">Book Tour</button>
+                        <img src="lalibela.jpg" alt="Lalibela Tour">
+                        <div class="tour-rating">
+                            <span class="rating">4.27</span>
+                            <span class="reviews">by 3 reviews</span>
                         </div>
                     </div>
-                    <div class="tour-info">
-                        <h3>Mountain Trek</h3>
-                        <p class="tour-price">$180/day</p>
-                        <ul class="tour-features">
-                            <li>Experienced Guide</li>
-                            <li>Safety Equipment</li>
-                            <li>Camping Gear</li>
-                            <li>First Aid Kit</li>
-                        </ul>
+                    <div class="tour-content">
+                        <h3>Lalibela Tour</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Lalibela</span>
+                            <span><i class="fas fa-clock"></i> 1 day</span>
+                        </div>
+                        <div class="tour-features">
+                            <div class="feature">
+                                <span>Quality</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Location</span>
+                                <span class="rating">4.00</span>
+                            </div>
+                            <div class="feature">
+                                <span>Amenities</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Services</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Price</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                        </div>
+                        <a href="tour-details.html?id=lalibela" class="explore-btn">Explore <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tour 5 -->
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="harar.jpg" alt="Harar Tour">
+                        <div class="tour-rating">
+                            <span class="rating">4.27</span>
+                            <span class="reviews">by 3 reviews</span>
+                        </div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Harar Tour</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Harar</span>
+                            <span><i class="fas fa-clock"></i> 1 day</span>
+                        </div>
+                        <div class="tour-features">
+                            <div class="feature">
+                                <span>Quality</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Location</span>
+                                <span class="rating">4.00</span>
+                            </div>
+                            <div class="feature">
+                                <span>Amenities</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Services</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Price</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                        </div>
+                        <a href="tour-details.html?id=harar" class="explore-btn">Explore <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tour 6 -->
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="axum.jpg" alt="Axum Tour">
+                        <div class="tour-rating">
+                            <span class="rating">4.27</span>
+                            <span class="reviews">by 3 reviews</span>
+                        </div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Axum Tour</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Axum</span>
+                            <span><i class="fas fa-clock"></i> 1 day</span>
+                        </div>
+                        <div class="tour-features">
+                            <div class="feature">
+                                <span>Quality</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Location</span>
+                                <span class="rating">4.00</span>
+                            </div>
+                            <div class="feature">
+                                <span>Amenities</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Services</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                            <div class="feature">
+                                <span>Price</span>
+                                <span class="rating">4.33</span>
+                            </div>
+                        </div>
+                        <a href="tour-details.html?id=axum" class="explore-btn">Explore <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+
 
     <footer>
         <div class="footer-content">
@@ -153,7 +344,6 @@
                     <p>phone: +251 911452860</p>
                     <p>phone: +251 939391926</p>
                     <p>phone: +251 938150622</p>
-
                 </div>
             </div>
 
@@ -168,9 +358,12 @@
                     <div class="socials">
                         <p>Find Us On Social Media</p>
                         <div class="social-icons">
-                            <a href="https://www.facebook.com/profile.php?id=61559891983322" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/teddycarrental12?utm_source=qr&igsh=YnZ4eHU5MmlvczZw" class="instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.tiktok.com/@teddy_tourrental16?_t=ZM-8vy1xTPVStz&_r=1" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61559891983322" class="facebook"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/teddycarrental12?utm_source=qr&igsh=YnZ4eHU5MmlvczZw"
+                                class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@teddy_tourrental16?_t=ZM-8vy1xTPVStz&_r=1"
+                                class="tiktok"><i class="fab fa-tiktok"></i></a>
                             <a href="https://t.me/Teddycarrental" class="telegram"><i class="fab fa-telegram"></i></a>
                         </div>
                     </div>

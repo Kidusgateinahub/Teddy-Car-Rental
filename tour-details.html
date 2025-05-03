@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tour Details - Teddy Car Rental</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="tour-details-container">
+        <div class="tour-details-header">
+            <h1 id="tour-title">Tour Title</h1>
+            <div class="tour-rating">
+                <span class="rating">4.27</span>
+                <span class="reviews">by 3 reviews</span>
+            </div>
+        </div>
+
+        <div class="tour-details-content">
+            <div class="tour-image">
+                <img id="tour-image" src="" alt="Tour Image">
+            </div>
+
+            <div class="tour-description">
+                <h2>About This Tour</h2>
+                <p id="tour-description">Tour description will be loaded here...</p>
+
+                <div class="tour-features">
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <span>Duration: <span id="tour-duration">1 day</span></span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Location: <span id="tour-location">Location</span></span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <span>Group Size: <span id="tour-group-size">Up to 10 people</span></span>
+                    </div>
+                </div>
+
+                <div class="tour-itinerary">
+                    <h2>Tour Itinerary</h2>
+                    <div id="tour-itinerary">
+                        <!-- Itinerary will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="tour-includes">
+                    <h2>What's Included</h2>
+                    <ul id="tour-includes">
+                        <!-- Included items will be loaded here -->
+                    </ul>
+                </div>
+
+                <div class="tour-booking">
+                    <a href="contact.html" class="book-now-btn">Book Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get tour details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const tourId = urlParams.get('id');
+
+        // This is where you would typically fetch tour details from a database
+        // For now, we'll use a simple object to store tour information
+        const tours = {
+            'addis': {
+                title: 'Addis Ababa City Tour',
+                image: 'slideshow4.jpg',
+                description: 'Explore the vibrant capital city of Ethiopia, Addis Ababa. Visit historical landmarks, museums, and experience the rich culture and traditions of Ethiopia.',
+                duration: '1 day',
+                location: 'Addis Ababa',
+                groupSize: 'Up to 10 people',
+                itinerary: [
+                    'Morning: Visit National Museum',
+                    'Afternoon: Explore Merkato Market',
+                    'Evening: Enjoy traditional Ethiopian dinner'
+                ],
+                includes: [
+                    'Professional guide',
+                    'Transportation',
+                    'Entrance fees',
+                    'Lunch'
+                ]
+            },
+            'omo': {
+                title: 'Omo Valley Tour',
+                image: 'omo.jpg',
+                description: 'Discover the unique cultures and traditions of the Omo Valley tribes. Experience their way of life and witness their colorful ceremonies.',
+                duration: '3 days',
+                location: 'Omo Valley',
+                groupSize: 'Up to 8 people',
+                itinerary: [
+                    'Day 1: Travel to Omo Valley',
+                    'Day 2: Visit local tribes',
+                    'Day 3: Return to Addis Ababa'
+                ],
+                includes: [
+                    'Professional guide',
+                    'Transportation',
+                    'Accommodation',
+                    'All meals'
+                ]
+            },
+            'semien': {
+                title: 'Semien Mountains Tour',
+                image: 'semen mountain.jpg',
+                duration: '4 days',
+                location: 'Semien Mountains',
+                groupSize: 'Up to 6 people',
+                itinerary: [
+                    'Day 1: Travel to Semien Mountains',
+                    'Day 2: Trekking and wildlife viewing',
+                    'Day 3: Visit local villages',
+                    'Day 4: Return to Addis Ababa'
+                ],
+                includes: [
+                    'Professional guide',
+                    'Transportation',
+                    'Accommodation',
+                    'All meals',
+                    'Park entrance fees'
+                ]
+            },
+            'lalibela': {
+                title: 'Lalibela Tour',
+                image: 'lalibela.jpg',
+                duration: '4 days',
+                location: 'Lalibela',
+                groupSize: 'Up to 6 people',
+                itinerary: [
+                    'Day 1: Travel to Lalibela',
+                    'Day 2: Trekking and wildlife viewing',
+                    'Day 3: Visit local villages',
+                    'Day 4: Return to Addis Ababa'
+                ],
+                includes: [
+                    'Professional guide',
+                    'Transportation',
+                    'Accommodation',
+                    'All meals',
+                    'Park entrance fees'
+                ]
+            },
+            'axum': {
+                title: 'Axum Tour',
+                image: 'axum.jpg',
+                duration: '4 days',
+                location: 'Axum',
+                groupSize: 'Up to 6 people',
+                itinerary: [
+                    'Day 1: Travel to Axum',
+                    'Day 2: Trekking and wildlife viewing',
+                    'Day 3: Visit local villages',
+                    'Day 4: Return to Addis Ababa'
+                ],
+                includes: [
+                    'Professional guide',
+                    'Transportation',
+                    'Accommodation',
+                    'All meals',
+                    'Park entrance fees'
+                ]
+            },
+            'harar': {
+                title: 'Harar Tour',
+                image: 'harar.jpg',
+                duration: '4 days',
+                location: 'Harar',
+                groupSize: 'Up to 6 people',
+                itinerary: [
+                    'Day 1: Travel to Harar',
+                    'Day 2: Trekking and wildlife viewing',
+                    'Day 3: Visit local villages',
+                    'Day 4: Return to Addis Ababa'
+                ],
+                includes: [
+                    'Professional guide',
+                    'Transportation',
+                    'Accommodation',
+                    'All meals',
+                    'Park entrance fees'
+                ]
+            }
+        };
+
+        // Load tour details
+        if (tourId && tours[tourId]) {
+            const tour = tours[tourId];
+            document.getElementById('tour-title').textContent = tour.title;
+            document.getElementById('tour-image').src = tour.image;
+            document.getElementById('tour-description').textContent = tour.description;
+            document.getElementById('tour-duration').textContent = tour.duration;
+            document.getElementById('tour-location').textContent = tour.location;
+            document.getElementById('tour-group-size').textContent = tour.groupSize;
+
+            // Load itinerary
+            const itineraryContainer = document.getElementById('tour-itinerary');
+            tour.itinerary.forEach(item => {
+                const p = document.createElement('p');
+                p.textContent = item;
+                itineraryContainer.appendChild(p);
+            });
+
+            // Load includes
+            const includesContainer = document.getElementById('tour-includes');
+            tour.includes.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                includesContainer.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html>
